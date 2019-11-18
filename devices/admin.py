@@ -12,15 +12,20 @@ class UnitInfoInline(admin.TabularInline):
 	extra = 0
 
 
+class DeviceInfoInline(admin.TabularInline):
+	 model = DeviceInfo
+	 extra = 0
+
+
 @admin.register(ProInfo)
 class ProInfoAdmin(admin.ModelAdmin):
-	inlines	 = (UnitInfoInline, AppInfoInline)
+	inlines	 = (UnitInfoInline, AppInfoInline, DeviceInfoInline)
 	list_display	= ('pro_name', 'pro_type', 'pro_ctime', 'pro_link', 'note')
-	search_fields   = ('pro_name', )
+	search_fields	= ('pro_name', )
 	search_list	= ('pro_type')
 
 
 @admin.register(DeviceInfo)
 class DevicesAdmin(admin.ModelAdmin):
 	list_display	= ('pro', 'hostname', 'ip', 'unit_name', 'isvhost', 'hostDevice', 'os_name', 'nature', )
-	search_fields   = ('pro', )
+	search_fields	= ('pro', )

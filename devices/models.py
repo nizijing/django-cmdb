@@ -45,7 +45,7 @@ class DeviceInfo(models.Model):
     nature      = models.CharField('配置', max_length = 16, help_text = 'such as 2C4G200G')
     isvhost     = models.BooleanField('是否虚拟机')
     hostDevice  = models.GenericIPAddressField('宿主机')
-    note        = models.CharField('备注', max_length = 100)
+    note        = models.CharField('备注', max_length = 100, blank = True)
     
     def __str__(self):
         return self.hostname
